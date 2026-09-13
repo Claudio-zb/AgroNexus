@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Variables de entorno / secretos
+.env
+.env.*
+
+# ESP-IDF / builds
+build/
+sdkconfig.old
+
+# VS Code
+.vscode/
