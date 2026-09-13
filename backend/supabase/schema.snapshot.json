@@ -1,0 +1,390 @@
+{
+  "relations": [
+    {
+      "relname": "mediciones",
+      "relkind": "r",
+      "relrowsecurity": true,
+      "relforcerowsecurity": false,
+      "owner": "postgres",
+      "relacl": [
+        "postgres=arwdDxtm/postgres",
+        "anon=arwdDxtm/postgres",
+        "authenticated=arwdDxtm/postgres",
+        "service_role=arwdDxtm/postgres"
+      ],
+      "comment": null
+    },
+    {
+      "relname": "mediciones_id_seq",
+      "relkind": "S",
+      "relrowsecurity": false,
+      "relforcerowsecurity": false,
+      "owner": "postgres",
+      "relacl": [
+        "postgres=rwU/postgres",
+        "anon=rwU/postgres",
+        "authenticated=rwU/postgres",
+        "service_role=rwU/postgres"
+      ],
+      "comment": null
+    }
+  ],
+  "columns": [
+    {
+      "relname": "mediciones",
+      "attname": "id",
+      "attnum": 1,
+      "type": "bigint",
+      "attnotnull": true,
+      "attidentity": "d",
+      "attgenerated": "",
+      "default_expr": null,
+      "comment": null
+    },
+    {
+      "relname": "mediciones",
+      "attname": "fecha",
+      "attnum": 2,
+      "type": "timestamp with time zone",
+      "attnotnull": true,
+      "attidentity": "",
+      "attgenerated": "",
+      "default_expr": "now()",
+      "comment": null
+    },
+    {
+      "relname": "mediciones",
+      "attname": "nodo",
+      "attnum": 3,
+      "type": "text",
+      "attnotnull": true,
+      "attidentity": "",
+      "attgenerated": "",
+      "default_expr": null,
+      "comment": null
+    },
+    {
+      "relname": "mediciones",
+      "attname": "contador",
+      "attnum": 4,
+      "type": "integer",
+      "attnotnull": true,
+      "attidentity": "",
+      "attgenerated": "",
+      "default_expr": null,
+      "comment": null
+    }
+  ],
+  "constraints": [
+    {
+      "conname": "mediciones_contador_check",
+      "contype": "c",
+      "relation": "mediciones",
+      "definition": "CHECK (contador >= 0)",
+      "convalidated": true
+    },
+    {
+      "conname": "mediciones_pkey",
+      "contype": "p",
+      "relation": "mediciones",
+      "definition": "PRIMARY KEY (id)",
+      "convalidated": true
+    }
+  ],
+  "indexes": [
+    {
+      "tablename": "mediciones",
+      "indexname": "mediciones_fecha_idx",
+      "indexdef": "CREATE INDEX mediciones_fecha_idx ON public.mediciones USING btree (fecha DESC)"
+    },
+    {
+      "tablename": "mediciones",
+      "indexname": "mediciones_pkey",
+      "indexdef": "CREATE UNIQUE INDEX mediciones_pkey ON public.mediciones USING btree (id)"
+    }
+  ],
+  "policies": [
+    {
+      "schemaname": "public",
+      "tablename": "mediciones",
+      "policyname": "prototype_anon_insert",
+      "permissive": "PERMISSIVE",
+      "roles": [
+        "anon"
+      ],
+      "cmd": "INSERT",
+      "qual": null,
+      "with_check": "true"
+    },
+    {
+      "schemaname": "public",
+      "tablename": "mediciones",
+      "policyname": "prototype_anon_select",
+      "permissive": "PERMISSIVE",
+      "roles": [
+        "anon"
+      ],
+      "cmd": "SELECT",
+      "qual": "true",
+      "with_check": null
+    }
+  ],
+  "triggers": null,
+  "functions": null,
+  "sequences": [
+    {
+      "relname": "mediciones_id_seq",
+      "type": "bigint",
+      "seqstart": "1",
+      "seqincrement": "1",
+      "seqmax": "9223372036854775807",
+      "seqmin": "1",
+      "seqcache": "1",
+      "seqcycle": false
+    }
+  ],
+  "enums": null,
+  "grants": [
+    {
+      "table_name": "mediciones",
+      "grantee": "anon",
+      "privilege_type": "DELETE",
+      "is_grantable": "NO"
+    },
+    {
+      "table_name": "mediciones",
+      "grantee": "anon",
+      "privilege_type": "INSERT",
+      "is_grantable": "NO"
+    },
+    {
+      "table_name": "mediciones",
+      "grantee": "anon",
+      "privilege_type": "REFERENCES",
+      "is_grantable": "NO"
+    },
+    {
+      "table_name": "mediciones",
+      "grantee": "anon",
+      "privilege_type": "SELECT",
+      "is_grantable": "NO"
+    },
+    {
+      "table_name": "mediciones",
+      "grantee": "anon",
+      "privilege_type": "TRIGGER",
+      "is_grantable": "NO"
+    },
+    {
+      "table_name": "mediciones",
+      "grantee": "anon",
+      "privilege_type": "TRUNCATE",
+      "is_grantable": "NO"
+    },
+    {
+      "table_name": "mediciones",
+      "grantee": "anon",
+      "privilege_type": "UPDATE",
+      "is_grantable": "NO"
+    },
+    {
+      "table_name": "mediciones",
+      "grantee": "authenticated",
+      "privilege_type": "DELETE",
+      "is_grantable": "NO"
+    },
+    {
+      "table_name": "mediciones",
+      "grantee": "authenticated",
+      "privilege_type": "INSERT",
+      "is_grantable": "NO"
+    },
+    {
+      "table_name": "mediciones",
+      "grantee": "authenticated",
+      "privilege_type": "REFERENCES",
+      "is_grantable": "NO"
+    },
+    {
+      "table_name": "mediciones",
+      "grantee": "authenticated",
+      "privilege_type": "SELECT",
+      "is_grantable": "NO"
+    },
+    {
+      "table_name": "mediciones",
+      "grantee": "authenticated",
+      "privilege_type": "TRIGGER",
+      "is_grantable": "NO"
+    },
+    {
+      "table_name": "mediciones",
+      "grantee": "authenticated",
+      "privilege_type": "TRUNCATE",
+      "is_grantable": "NO"
+    },
+    {
+      "table_name": "mediciones",
+      "grantee": "authenticated",
+      "privilege_type": "UPDATE",
+      "is_grantable": "NO"
+    },
+    {
+      "table_name": "mediciones",
+      "grantee": "postgres",
+      "privilege_type": "DELETE",
+      "is_grantable": "YES"
+    },
+    {
+      "table_name": "mediciones",
+      "grantee": "postgres",
+      "privilege_type": "INSERT",
+      "is_grantable": "YES"
+    },
+    {
+      "table_name": "mediciones",
+      "grantee": "postgres",
+      "privilege_type": "REFERENCES",
+      "is_grantable": "YES"
+    },
+    {
+      "table_name": "mediciones",
+      "grantee": "postgres",
+      "privilege_type": "SELECT",
+      "is_grantable": "YES"
+    },
+    {
+      "table_name": "mediciones",
+      "grantee": "postgres",
+      "privilege_type": "TRIGGER",
+      "is_grantable": "YES"
+    },
+    {
+      "table_name": "mediciones",
+      "grantee": "postgres",
+      "privilege_type": "TRUNCATE",
+      "is_grantable": "YES"
+    },
+    {
+      "table_name": "mediciones",
+      "grantee": "postgres",
+      "privilege_type": "UPDATE",
+      "is_grantable": "YES"
+    },
+    {
+      "table_name": "mediciones",
+      "grantee": "service_role",
+      "privilege_type": "DELETE",
+      "is_grantable": "NO"
+    },
+    {
+      "table_name": "mediciones",
+      "grantee": "service_role",
+      "privilege_type": "INSERT",
+      "is_grantable": "NO"
+    },
+    {
+      "table_name": "mediciones",
+      "grantee": "service_role",
+      "privilege_type": "REFERENCES",
+      "is_grantable": "NO"
+    },
+    {
+      "table_name": "mediciones",
+      "grantee": "service_role",
+      "privilege_type": "SELECT",
+      "is_grantable": "NO"
+    },
+    {
+      "table_name": "mediciones",
+      "grantee": "service_role",
+      "privilege_type": "TRIGGER",
+      "is_grantable": "NO"
+    },
+    {
+      "table_name": "mediciones",
+      "grantee": "service_role",
+      "privilege_type": "TRUNCATE",
+      "is_grantable": "NO"
+    },
+    {
+      "table_name": "mediciones",
+      "grantee": "service_role",
+      "privilege_type": "UPDATE",
+      "is_grantable": "NO"
+    }
+  ],
+  "default_acl": [
+    {
+      "role": "postgres",
+      "defaclobjtype": "S",
+      "defaclacl": [
+        "postgres=rwU/postgres",
+        "anon=rwU/postgres",
+        "authenticated=rwU/postgres",
+        "service_role=rwU/postgres"
+      ]
+    },
+    {
+      "role": "postgres",
+      "defaclobjtype": "f",
+      "defaclacl": [
+        "postgres=X/postgres",
+        "anon=X/postgres",
+        "authenticated=X/postgres",
+        "service_role=X/postgres"
+      ]
+    },
+    {
+      "role": "postgres",
+      "defaclobjtype": "r",
+      "defaclacl": [
+        "postgres=arwdDxtm/postgres",
+        "anon=arwdDxtm/postgres",
+        "authenticated=arwdDxtm/postgres",
+        "service_role=arwdDxtm/postgres"
+      ]
+    },
+    {
+      "role": "supabase_admin",
+      "defaclobjtype": "S",
+      "defaclacl": [
+        "postgres=rwU/supabase_admin",
+        "anon=rwU/supabase_admin",
+        "authenticated=rwU/supabase_admin",
+        "service_role=rwU/supabase_admin"
+      ]
+    },
+    {
+      "role": "supabase_admin",
+      "defaclobjtype": "f",
+      "defaclacl": [
+        "postgres=X/supabase_admin",
+        "anon=X/supabase_admin",
+        "authenticated=X/supabase_admin",
+        "service_role=X/supabase_admin"
+      ]
+    },
+    {
+      "role": "supabase_admin",
+      "defaclobjtype": "r",
+      "defaclacl": [
+        "postgres=arwdDxtm/supabase_admin",
+        "anon=arwdDxtm/supabase_admin",
+        "authenticated=arwdDxtm/supabase_admin",
+        "service_role=arwdDxtm/supabase_admin"
+      ]
+    }
+  ],
+  "schema": {
+    "owner": "pg_database_owner",
+    "acl": [
+      "pg_database_owner=UC/pg_database_owner",
+      "=U/pg_database_owner",
+      "postgres=U/pg_database_owner",
+      "anon=U/pg_database_owner",
+      "authenticated=U/pg_database_owner",
+      "service_role=U/pg_database_owner"
+    ]
+  }
+}
